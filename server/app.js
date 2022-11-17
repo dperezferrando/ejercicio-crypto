@@ -10,3 +10,5 @@ const config = require("./config/environment");
 
 mongoose.Promise = require("bluebird")
 mongoose.connect(config.mongo.uri, config.mongo.options);
+
+require("./console.js")

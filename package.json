@@ -13,6 +13,7 @@
     "bluebird": "^3.7.2",
     "lodash": "^4.17.21",
     "mongoose": "^6.6.0",
+    "readline-sync": "^1.4.10",
     "request": "^2.88.2",
     "request-promise": "^4.2.6"
   }

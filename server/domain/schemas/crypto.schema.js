@@ -6,7 +6,8 @@ CryptoSchema = new Schema({
     "acronym": String,
     "name": String,
     "originCoin": String,
-    "rateValue": Number
+    "rateValue": Number,
+    "date": String
 });
 
 

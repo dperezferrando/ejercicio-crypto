@@ -1,9 +1,9 @@
-const getQuote = require("./getQuote");
 const config = require("../../server/config/environment");
 const saveData = require("../../server/domain/mongoUtils/save.data");
 const structCrypto = require("../../server/domain/mongoUtils/struct.crypto");
 const mongoose = require("mongoose")
-const Promise = require('bluebird')
+const Promise = require('bluebird');
+const ApiCoin = require("../../server/domain/apiCoin");
 
 const coins = config.api.coins
 
@@ -13,9 +13,10 @@ mongoose.connect(config.mongo.uri, config.mongo.options);
 // })
 
 let arrayCoins = coins.split(',');
+let api = new ApiCoin();
 
 Promise.map(arrayCoins, (coin) => {
-    return getQuote(coin)
+    return api.getQuote(coin)
         .then(res => {
             return saveData(structCrypto(res))
         })

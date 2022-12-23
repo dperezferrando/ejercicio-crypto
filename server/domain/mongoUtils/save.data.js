@@ -3,6 +3,4 @@ const saveData = (data) => {
     data.save()
 }
 
-// TODO: No funciono el tema de saveAsync
-
 module.exports = saveData

@@ -13,6 +13,7 @@
     "asciichart": "^1.5.25",
     "bluebird": "^3.7.2",
     "lodash": "^4.17.21",
+    "moment": "^2.29.4",
     "mongoose": "^6.6.0",
     "readline-sync": "^1.4.10",
     "request": "^2.88.2",

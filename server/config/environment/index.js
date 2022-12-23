@@ -1,12 +1,12 @@
 const _ = require('lodash')
-
-var path = require("path");
-_.assign(process.env, (() => { try { return require("../local.env"); } catch (error) {} })());
+const path = require("path");
 
 try {
   require("./" + process.env.NODE_ENV);
 } catch (error) {
 }
+
+_.assign(process.env, (() => { try { return require("../local.env"); } catch (error) {} })());
 
 module.exports = {
   env: process.env.NODE_ENV,

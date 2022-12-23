@@ -19,7 +19,9 @@ module.exports = {
     uri: process.env.MONGO_URI
   },
   api: {
+    uri: process.env.API_URI,
     token: process.env.API_TOKEN,
+    token_2: process.env.API_TOKEN_2,
     coins: process.env.LIST_COINS,
   }
 };

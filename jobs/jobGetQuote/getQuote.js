@@ -2,13 +2,13 @@ const request = require("request-promise")
 const config = require("../../server/config/environment");
 
 const getQuote = (coin) => {
-    const coinMayus = coin.toUpperCase()
+    const coinMayus = coin.toUpperCase().trim();
 
     let options = {
         method: 'GET',
-        url: `https://rest.coinapi.io/v1/exchangerate/${coinMayus}/USD`,
+        url: `${config.api.uri}/exchangerate/${coinMayus}/USD`,
         headers: {
-            'X-CoinAPI-Key': config.api.token
+            'X-CoinAPI-Key': config.api.token_2
         }
     }
 

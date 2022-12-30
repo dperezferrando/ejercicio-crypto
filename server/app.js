@@ -34,11 +34,12 @@ return cryptoSchema.find({ acronym: cripto })
             return date1 > date2 ? date1 : date2;
         });
         let graficValues = data.map(coin => coin.rateValue)
-        console.log(`Fecha Inicio: ${formatDate(minDate)} - Fecha Fin: ${formatDate(maxDate)}`)
+        console.log('\nEl siguiente grafico muestra el valor a lo largo del tiempo de la criptomoneda elegida');
+        console.log(`\nFecha Inicio: ${formatDate(minDate)} - Fecha Fin: ${formatDate(maxDate)}\n`)
         console.log(asciichart.plot(graficValues))
     })
     .then(_ => {
-        console.log("Gracia vuelvas prontos")
+        console.log("\nGracias vuelvas prontos")
         return mongoose.disconnect()
     })
 

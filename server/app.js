@@ -5,6 +5,7 @@ Main application file
 require("./srv-globals");
 
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
+const moment = require('moment');
 const mongoose = require("mongoose");
 const config = require("./config/environment");
 const cryptoSchema = require("./domain/schemas/crypto.schema");
@@ -19,11 +20,25 @@ mongoose.connect(config.mongo.uri, config.mongo.options);
 
 let cripto = require("./console");
 
-cryptoSchema.find({ acronym: cripto })
-    .then(data => {
-        // console.log(data)
-        let graficValues = data.map(coin => coin.rateValue)
+const formatDate = (date) => {
+    return moment(date).format("DD/MM/YYYY");
+}
 
+return cryptoSchema.find({ acronym: cripto })
+    .then(data => {
+        let dates = data.map(coin => coin.date)
+        let minDate = dates.reduce(function (date1, date2) {
+            return date1 < date2 ? date1 : date2;
+        });
+        let maxDate = dates.reduce(function (date1, date2) {
+            return date1 > date2 ? date1 : date2;
+        });
+        let graficValues = data.map(coin => coin.rateValue)
+        console.log(`Fecha Inicio: ${formatDate(minDate)} - Fecha Fin: ${formatDate(maxDate)}`)
         console.log(asciichart.plot(graficValues))
+    })
+    .then(_ => {
+        console.log("Gracia vuelvas prontos")
+        return mongoose.disconnect()
     })
 

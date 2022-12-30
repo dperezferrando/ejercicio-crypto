@@ -21,6 +21,6 @@ Promise.map(arrayCoins, (coin) => {
             return saveData(structCrypto(res))
         })
 }).then(_ => { 
-    console.log("Ya guarde todo")
+    // console.log("Ya guarde todo")
     return mongoose.disconnect()
 })

@@ -43,29 +43,22 @@ return cryptoSchema.find({ acronym: cripto })
         console.log("\nGracias vuelvas prontos")
         return mongoose.disconnect()
     })
-var app = express();
 
-var server = require("http").createServer(app);
+    
+// var app = express();
 
-require("./config/express")(app);
+// var server = require("http").createServer(app);
 
-require("./routes")(app);
+// require("./config/express")(app);
 
-require("./errorHandler")(app);
+// require("./routes")(app);
+
+// require("./errorHandler")(app);
 
 
-server.listen(config.port, config.ip, () => {
-    console.log("Express server listening on %d, in %s mode", config.port, app.get("env"))
-   /* let cripto = require("./console");
-
-    cryptoSchema.find({ acronym: cripto })
-        .then(data => {
-            // console.log(data)
-            let graficValues = data.map(coin => coin.rateValue)
-
-            console.log(asciichart.plot(graficValues))
-        })*/
-});
+// server.listen(config.port, config.ip, () => {
+//     console.log("Express server listening on %d, in %s mode", config.port, app.get("env"))
+// });
 
 
 

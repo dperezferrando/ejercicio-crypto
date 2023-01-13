@@ -1,3 +1,6 @@
 const insistentPrompt = require("./utils/insistentPrompt")
 const cripto = insistentPrompt("Ingrese criptomoneda")
-console.log(cripto)
+
+const criptoUper = cripto.toUpperCase();
+
+module.exports = criptoUper
